@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class InputManager {
 
 	public ArrayList<String> getCommands() {
-		// TODO Auto-generated method stub
+		// TODO handle input commands
 		return null;
 	}
 

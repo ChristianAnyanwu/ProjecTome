@@ -1,12 +1,12 @@
 package core;
 
-import java.util.ArrayList;
-
 import base.Base;
 import command.CommandManager;
 import input.InputManager;
 import output.OutputManager;
-import project.ProjectLoader;
+import project.Project;
+import projectMaster.MasterProject;
+import projectMaster.MasterProjectLoader;
 
 public class ProjectManager {
 
@@ -16,20 +16,37 @@ public class ProjectManager {
 
 	}
 
-	InputManager im;
-	OutputManager om;
-	CommandManager cm;
-	ProjectLoader pl;
+	static InputManager im;
+	static OutputManager om;
+	static CommandManager cm;
+	static MasterProject mp;
 
-	Base base;
+	static Base base;
+	
+	Project project;
 
+	String ProjectMasterFileLocation = "C:/Users/Christian/Desktop/Projects/ProjectManager/MasterProject.json";
+	
+	
+	
 	private void run() {
+		
+		StartProjectSubSystem();
+		
+		
 		//main loop just no while for now
-		ArrayList<String> cmds = im.getCommands();
+		/*ArrayList<String> cmds = im.getCommands();
 	
 		if (cmds.size() > 0) {
 
-		}
+		}*/
+		
+		
+	}
+
+	private void StartProjectSubSystem() {
+		mp = MasterProjectLoader.getMasterProject(ProjectMasterFileLocation);
+		
 	}
 
 }
