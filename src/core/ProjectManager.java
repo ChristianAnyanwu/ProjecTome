@@ -19,6 +19,7 @@ public class ProjectManager {
 	InputManager im;
 	OutputManager om;
 	CommandManager cm;
+	ProjectLoader pl;
 
 	Base base;
 
