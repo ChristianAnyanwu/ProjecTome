@@ -30,7 +30,7 @@ public class MasterProjectLoader {
 
 		for (int i = 0; i < projects.size(); i++) {
 			String name = ((JSONObject) projects.get(i)).get("Project-Name").toString().toLowerCase();
-			String shortName = ((JSONObject) projects.get(i)).get("Project-Short-Name").toString().toLowerCase();
+			String shortName = ((JSONObject) projects.get(i)).get("Project-Name-Short").toString().toLowerCase();
 			String fileLoc = ((JSONObject) projects.get(i)).get("Project-File-Loc").toString().toLowerCase();
 			ProjectListItem p = new ProjectListItem(name, shortName, fileLoc);
 			projs.add(p);
