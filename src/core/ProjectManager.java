@@ -1,12 +1,12 @@
 package core;
 
-import output.OutputManager;
-
 import java.util.ArrayList;
 
 import base.Base;
 import command.CommandManager;
 import input.InputManager;
+import output.OutputManager;
+import project.ProjectLoader;
 
 public class ProjectManager {
 
