@@ -33,6 +33,8 @@ public class ProjectManager {
 		
 		StartProjectSubSystem();
 		
+		project = mp.getProjectByName("Test");
+		
 		
 		//main loop just no while for now
 		/*ArrayList<String> cmds = im.getCommands();

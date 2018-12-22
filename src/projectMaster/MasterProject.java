@@ -27,7 +27,7 @@ public class MasterProject {
 		return false;
 	}
 
-	private Project getProjectByName(String projectName) {
+	public Project getProjectByName(String projectName) {
 		if (projectNameExists(projectName)) {
 			ProjectListItem pli = getProjectListItemByName(projectName);
 			return pl.loadProject(pli.getFileLoc());
