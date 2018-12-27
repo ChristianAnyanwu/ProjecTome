@@ -67,7 +67,7 @@ public class ProjectManager {
 	private void coreCommandLoop() {
 		// TODO Auto-generated method stub
 		ArrayList<String> commands = im.getCommandInput();
-		cm.processCommands(commands);
+		cm.processCommands(commands, project);
 	}
 
 	private void StartProjectSubSystem() {

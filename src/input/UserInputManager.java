@@ -37,6 +37,22 @@ public class UserInputManager {
 		return false;
 	}
 
+	public void messageUser(String message) {
+		messageUser("", message);
+	}
+
+	public void messageUser(String title, String message) {
+		// TODO how to handle whether user recieved response?
+		switch (userInputType) {
+		case ComputerDialog:
+			messageUserWithDialog(title, message);
+			break;
+		// TODO implement texting response for messaging user
+		default:
+			break;
+		}
+	}
+
 	private String getUserInputStringFromDialog(String question) {
 		String response = JOptionPane.showInputDialog(null, question);
 		if (response == null) {
@@ -46,14 +62,18 @@ public class UserInputManager {
 	}
 
 	private Boolean getUserYesNoFromDialog(String question) {
-		//TODO allow title to change
-		int response = JOptionPane.showConfirmDialog(null, question,"title",0);
+		// TODO allow title to change
+		int response = JOptionPane.showConfirmDialog(null, question, "title", 0);
 
 		if (response == 0) {
 			return true;
 		}
 		return false;
 	}
-	
-	//TODO put in yesnocancel option for user input
+
+	private void messageUserWithDialog(String title, String message) {
+		JOptionPane.showMessageDialog(null, message, title, 1);
+	}
+
+	// TODO put in yesnocancel option for user input
 }
