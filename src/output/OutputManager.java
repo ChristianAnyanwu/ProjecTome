@@ -1,5 +1,7 @@
 package output;
 
+import log.Log;
+
 public class OutputManager {
-//TODO handle outputs
+	Log log;
 }

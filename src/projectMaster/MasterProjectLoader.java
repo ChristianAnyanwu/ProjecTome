@@ -7,13 +7,14 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import log.Log;
 import util.FileUtility;
 
 public class MasterProjectLoader {
 	static JSONObject root = new JSONObject();
 	static FileUtility fl = new FileUtility();
 
-	public static MasterProject getMasterProject(String projectMasterFileLocation) {
+	public static MasterProject getMasterProject(String projectMasterFileLocation, Log _log) {
 		root = fl.getProjectAsJsonRoot(projectMasterFileLocation);
 
 		// getting json value
@@ -29,7 +30,7 @@ public class MasterProjectLoader {
 			projs.add(p);
 		}
 
-		return new MasterProject(projs);
+		return new MasterProject(projs, _log);
 	}
 
 }
