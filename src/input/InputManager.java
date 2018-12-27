@@ -23,7 +23,7 @@ public class InputManager {
 		ArrayList<String> commands = new ArrayList<String>();
 		
 		for (int i = 0; i < commandsSplit.length; i++) {
-			commands.add(commandsSplit[i]);
+			commands.add(commandsSplit[i].trim());
 		}
 				
 		return commands;

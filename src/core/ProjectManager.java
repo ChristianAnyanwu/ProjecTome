@@ -30,28 +30,31 @@ public class ProjectManager {
 		}, "Shutdown-thread"));
 	}
 
-	static InputManager im;
-	static OutputManager om;
-	static CommandManager cm;
-	static MasterProject mp;
+	public InputManager im;
+	public OutputManager om;
+	public CommandManager cm;
+	public MasterProject mp;
 
 	// TODO implement system to have new log file created on close
 	Log log = new Log();
 
 	static Base base;
 
-	Project project;
+	public Project project;
 
 	String ProjectMasterFileLocation = "C:/Users/Christian/Desktop/Projects/ProjectManager/MasterProject.json";
 
+	boolean keepRunning = true;
+	
 	private void run() {
 
 		StartProjectSubSystem();
 		StartInputSubSystem();
 		StartCommandSubSystem();
-		project = mp.getProjectByName("Test");
 
-		coreCommandLoop();
+		while (keepRunning) {
+			coreCommandLoop();
+		}
 
 		// main loop just no while for now
 		/*
@@ -67,12 +70,11 @@ public class ProjectManager {
 	private void coreCommandLoop() {
 		// TODO Auto-generated method stub
 		ArrayList<String> commands = im.getCommandInput();
-		cm.processCommands(commands, project);
+		cm.processCommands(this, commands, project);
 	}
 
 	private void StartProjectSubSystem() {
 		mp = MasterProjectLoader.getMasterProject(ProjectMasterFileLocation, log);
-
 	}
 
 	private void StartInputSubSystem() {
@@ -82,4 +84,42 @@ public class ProjectManager {
 	private void StartCommandSubSystem() {
 		cm = new CommandManager(log);
 	}
+
+	// -----------------Setters and Getters
+	public Project getProject() {
+		return project;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
+	}
+
+	public InputManager getIm() {
+		return im;
+	}
+
+	public OutputManager getOm() {
+		return om;
+	}
+
+	public CommandManager getCm() {
+		return cm;
+	}
+
+	public MasterProject getMp() {
+		return mp;
+	}
+
+	public Log getLog() {
+		return log;
+	}
+
+	public boolean isKeepRunning() {
+		return keepRunning;
+	}
+
+	public void setKeepRunning(boolean keepRunning) {
+		this.keepRunning = keepRunning;
+	}
+
 }
