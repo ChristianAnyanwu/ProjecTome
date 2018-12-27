@@ -1,5 +1,7 @@
 package core;
 
+import java.util.ArrayList;
+
 import base.Base;
 import command.CommandManager;
 import input.InputManager;
@@ -35,7 +37,8 @@ public class ProjectManager {
 		StartInputSubSystem();
 		project = mp.getProjectByName("Test");
 		
-		im.getCommandInput();
+		coreCommandLoop();
+		
 		//main loop just no while for now
 		/*ArrayList<String> cmds = im.getCommands();
 	
@@ -44,6 +47,12 @@ public class ProjectManager {
 		}*/
 		
 		
+	}
+
+	private void coreCommandLoop() {
+		// TODO Auto-generated method stub
+		ArrayList<String> commands = im.getCommandInput();
+		cm.processCommands(commands);
 	}
 
 	private void StartProjectSubSystem() {

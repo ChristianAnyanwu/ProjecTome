@@ -2,6 +2,7 @@ package input;
 
 import java.awt.Dimension;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
@@ -12,13 +13,12 @@ public class InputManager {
 	UserInputManager uim = new UserInputManager();
 
 	public ArrayList<String> getCommandInput() {
-		String commandsRaw = "";
-
-		uim.getUserInputString("Enter Commands:");
+		String commandsRaw = uim.getUserInputString("Enter Commands:");
 		
-		System.out.println(commandsRaw);
-
-		return null;
+		String[] commandsSplit = commandsRaw.split("[.;,]");
+		ArrayList<String> commands = (ArrayList<String>) Arrays.asList(commandsSplit);
+		
+		return commands;
 	}
 
 }
