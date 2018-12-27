@@ -32,10 +32,10 @@ public class ProjectManager {
 	private void run() {
 		
 		StartProjectSubSystem();
-		
+		StartInputSubSystem();
 		project = mp.getProjectByName("Test");
 		
-		
+		im.getCommandInput();
 		//main loop just no while for now
 		/*ArrayList<String> cmds = im.getCommands();
 	
@@ -49,6 +49,10 @@ public class ProjectManager {
 	private void StartProjectSubSystem() {
 		mp = MasterProjectLoader.getMasterProject(ProjectMasterFileLocation);
 		
+	}
+	
+	private void StartInputSubSystem() {
+		im = new InputManager();
 	}
 
 }
